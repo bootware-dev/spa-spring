@@ -1,4 +1,4 @@
-# auth-test
+# Frontend Vue
 
 ## Project setup
 ```
