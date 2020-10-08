@@ -8,6 +8,15 @@ Session Management Practices in SPA + Spring Security.
  - Docker Desktop
  - Yarn (or npm)
 
+## Overview
+
+ - Construction:
+    - Frontend: 
+        - Vue.js (axios, VueRouter, Vuex)
+    - Backend:
+        - Spring Boot (Spring Security, JPA, lombok)
+- Authentication Method: JWT ( httpOnly )
+
 ## Setup
 
 ```sh
