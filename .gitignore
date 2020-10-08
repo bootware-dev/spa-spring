@@ -1,0 +1,12 @@
+.idea
+*.iml
+
+target
+
+node_modules
+
+.settings
+.project
+.classpath
+
+/.env
