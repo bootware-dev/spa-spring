@@ -67,7 +67,7 @@
 </template>
 
 <script lang="ts">
-    import { Component, Prop, Vue } from 'vue-property-decorator';
+    import {Component, Prop, Vue} from 'vue-property-decorator';
     import FormItem from '@/modules/form/formItem';
     import ErrorHandler from '@/modules/errorHandler';
 

@@ -1,24 +1,22 @@
 <template xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
   <div>
-    <v-app-bar
-        app
-        dark>
+    <v-app-bar app dark>
 
-      Vue.js
+      <div class="h3">Vue.js</div>
 
       <v-spacer></v-spacer>
 
       <v-menu
-          v-if="items.length > 0"
-          bottom
-          left
+              v-if="items.length > 0"
+              bottom
+              left
       >
         <template v-slot:activator="{ on, attrs }">
           <v-btn
-              dark
-              icon
-              v-bind="attrs"
-              v-on="on"
+                  dark
+                  icon
+                  v-bind="attrs"
+                  v-on="on"
           >
             <v-app-bar-nav-icon/>
           </v-btn>
@@ -55,7 +53,7 @@
 
 <script lang="ts">
 
-  import {Component, Prop, Vue} from "vue-property-decorator";
+  import {Component, Vue} from "vue-property-decorator";
   import AuthService from "@/modules/auth/authService";
 
   @Component
