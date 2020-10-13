@@ -9,14 +9,14 @@
 		<version>1.0.0</version>
 	</parent>
 
-	<artifactId>spa-spring-backend</artifactId>
+	<artifactId>spa-spring-backend-common</artifactId>
 	<version>${parent.version}</version>
 
 	<dependencies>
 
 		<dependency>
 			<groupId>jp.bootware.base</groupId>
-			<artifactId>spa-spring-backend-common</artifactId>
+			<artifactId>spa-spring-entity</artifactId>
 			<version>1.0.0</version>
 		</dependency>
 
@@ -49,6 +49,11 @@
 			<version>2.0.1.Final</version>
 		</dependency>
 		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>0.9.1</version>
+		</dependency>
+		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 			<scope>runtime</scope>
@@ -72,30 +77,5 @@
 			</exclusions>
 		</dependency>
 	</dependencies>
-
-	<build>
-		<resources>
-			<resource>
-				<directory>src/main/resources</directory>
-				<filtering>true</filtering>
-			</resource>
-		</resources>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<executions>
-					<execution>
-						<goals>
-							<goal>repackage</goal>
-						</goals>
-						<configuration>
-							<classifier>${executable.classifier}</classifier>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
-	</build>
 
 </project>

@@ -125,6 +125,8 @@
 
   <modules>
     <module>migration</module>
+    <module>entity</module>
+    <module>backend-common</module>
     <module>backend</module>
   </modules>
 
