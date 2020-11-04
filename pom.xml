@@ -124,8 +124,8 @@
   </build>
 
   <modules>
-    <module>migration</module>
-    <module>entity</module>
+    <module>tools/migration</module>
+    <module>tools/entity</module>
     <module>backend-common</module>
     <module>backend</module>
   </modules>
