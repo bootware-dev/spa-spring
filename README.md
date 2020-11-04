@@ -23,8 +23,8 @@ Session Management Practices in SPA + Spring Security.
 ./mvnw clean
 ./mvnw -N install
 ./mvnw -N -Drun=init-container
-./mvnw -f migration -P migrate-test
-./mvnw -f entity -P reveng
+./mvnw -f tools/migration -P migrate-test
+./mvnw -f tools/entity -P reveng
 ./mvnw install -f entity
 ./mvnw install -f backend-common -Dmaven.test.skip
 ./mvnw install -f backend -Dmaven.test.skip

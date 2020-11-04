@@ -3,7 +3,7 @@
 
   <Sidebar></Sidebar>
 
-  <Header v-if="isHeaderVisible()"></Header>
+  <Header v-if="$vuetify.breakpoint.md"></Header>
 
   <v-main>
     <v-container fluid>
@@ -37,19 +37,6 @@
 
     private isLoggedIn() {
       return AuthService.loggedIn();
-    }
-
-    // See https://vuetifyjs.com/en/features/breakpoints/breakpoint
-    private isHeaderVisible() {
-      switch (this.$vuetify.breakpoint.name) {
-        case 'xs':
-        case 'sm':
-        case 'md':
-          return true;
-        case 'lg':
-        case 'xl':
-          return false;
-      }
     }
   }
 </script>
