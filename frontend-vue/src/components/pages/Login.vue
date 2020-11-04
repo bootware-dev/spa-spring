@@ -5,18 +5,6 @@
         <v-flex>
           <v-card class="mx-auto pa-8" elevation="0" max-width="500">
             <div class="headline">Login</div>
-
-            <!--            <input-form>-->
-
-            <!--              <v-text-field id="loginId" type="text" placeholder="Email or Username"></v-text-field>-->
-            <!--              <v-text-field id="password" type="password" placeholder="password"></v-text-field>-->
-
-            <!--              <v-card-actions>-->
-            <!--                <v-spacer></v-spacer>-->
-            <!--                <v-btn dark type="submit" @click="login">Login</v-btn>-->
-            <!--              </v-card-actions>-->
-            <!--            </input-form>-->
-
             <input-form :afterValidation="login" :formItems="items" class="pt-3">
               <v-card-actions>
                 <v-spacer></v-spacer>
@@ -34,6 +22,7 @@
   import {Component, Vue} from 'vue-property-decorator';
   import AuthService from '@/modules/auth/authService';
   import FormItem from "@/modules/form/formItem";
+  import UUIDUtil from "@/modules/auth/uuidUtil";
 
   @Component
   export default class Login extends Vue {
@@ -48,7 +37,12 @@
             .withRequired(true)
             .withType('password');
 
-    items = [this.loginId, this.password];
+    private csrf = new FormItem('csrf', 'Csrf')
+            .withVisible(true)
+            .withDisabled(() => true)
+            .withType('text')
+
+    items = [this.loginId, this.password, this.csrf];
 
     public beforeMount() {
       if (AuthService.loggedIn()) {
@@ -57,8 +51,14 @@
     }
 
     public login() {
+
+      // CSRF Token 生成
+      const csrfToken = UUIDUtil.generateUuid();
+
+      // TODO Store に保持する
+
       AuthService
-              .login(this.loginId.value, this.password.value)
+              .login(this.loginId.value, this.password.value, csrfToken)
               .then((success) => {
                 if (success) {
                   this.$router.push('/');
