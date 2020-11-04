@@ -35,8 +35,8 @@
             .withRequired(true)
             .withType('password');
 
-    private csrf = new FormItem('csrf', 'Csrf')
-            .withVisible(false)
+    private csrf = new FormItem('csrf', 'CSRF (Display on development mode)')
+            .withVisible(process.env.NODE_ENV === 'development')
             .withDisabled(() => true)
             .withType('text')
 
@@ -52,6 +52,7 @@
 
       // CSRF Token 生成
       const csrfToken = UUIDUtil.generateUuid();
+      this.csrf.value = csrfToken;
 
       // TODO CSRF Token を Store に保持する
 
