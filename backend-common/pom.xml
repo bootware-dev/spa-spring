@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>jp.bootware.base</groupId>
+		<groupId>jp.bootware.base.spaspring</groupId>
 		<artifactId>spa-spring</artifactId>
 		<version>1.0.0</version>
 	</parent>
 
-	<artifactId>spa-spring-backend-common</artifactId>
+	<artifactId>backend-common</artifactId>
 	<version>${parent.version}</version>
 
 	<dependencies>

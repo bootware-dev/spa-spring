@@ -28,17 +28,15 @@
   export default class Login extends Vue {
 
     private loginId = new FormItem('loginId', 'Email or Username')
-            // .withIcon('email')
             .withRequired(true)
             .withType('text');
 
     private password = new FormItem('password', 'Password')
-            // .withIcon('lock')
             .withRequired(true)
             .withType('password');
 
     private csrf = new FormItem('csrf', 'Csrf')
-            .withVisible(true)
+            .withVisible(false)
             .withDisabled(() => true)
             .withType('text')
 
@@ -55,10 +53,10 @@
       // CSRF Token 生成
       const csrfToken = UUIDUtil.generateUuid();
 
-      // TODO Store に保持する
+      // TODO CSRF Token を Store に保持する
 
       AuthService
-              .login(this.loginId.value, this.password.value, csrfToken)
+              .login(this.loginId.value, this.password.value)
               .then((success) => {
                 if (success) {
                   this.$router.push('/');
